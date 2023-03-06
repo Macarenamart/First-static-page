@@ -1,0 +1,503 @@
+*{
+  text-decoration: none;
+  margin:0px;
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 7px;
+}
+
+$color-secundario:#fee6e3;
+
+
+
+
+
+#contenedor_web{
+  width:90%;
+  height: auto;
+  margin: 0px auto;
+  border: 4px solid black;
+  box-shadow: 0px 0px 10px #ccc;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  min-height: 600px;
+  border-radius: 20px;
+}
+
+#header{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 120px;
+  border-bottom: 4px solid black;
+  padding-right: 20px;
+
+}
+
+.logo{
+  flex-grow: 1;
+
+  /* Factor de crecimiento de un elemento flexible que tiene asignado un display:flex.
+  - Especifica que cantidad restante dentro del contenedor flexible debería ocupar el item. */
+  flex-basis: 65%;
+  
+  padding: 10px;
+  margin-left: 20px;
+  color: black;
+  /*text-shadow: 1px 1px 0px grey;*/
+  text-transform: uppercase;
+
+
+}
+
+.head_title{
+  font-family: Arial, "Helvetica", sans-serif;
+  /*font-style: italic;*/
+  font-weight: 900;
+  font-size: 35px;
+
+}
+
+#menu{
+  flex-grow: 1;
+  flex-basis: 30%;
+  /* Especifica el tamaño de una caja de contenidos, en este caso la que contiene el menú */
+  height:100%;
+ 
+}
+
+/* Selector hijo -- Entramos en menú y llegamos mediante ">" al elemento al que voy a aplicarle el estilo*/
+#menu > ul{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content: space-between;
+  height:100%;
+  list-style: none;
+  
+
+}
+
+.menu_btn{
+  background-color: $color-secundario;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 20px;
+  margin-left: 15px;
+ 
+}
+
+.menu_btn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+/*Caja que contiene el aside y la caja de proyectos*/
+#contenido{
+  display:flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+/*Para aplicarle display flex a los hijos tengo que volver a declararlo aqui porque img y p ya serían tercer nivel*/
+#projects{
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex-basis: 80%;
+
+  /* Este margen tiene que ser el mismo que el padding que puse en "header" para que queden alineados*/
+  margin-right: 30px;
+  margin-left: 20px; 
+
+}
+
+.project{
+  flex-grow: 1;
+  flex-basis: 250px;
+  margin-bottom: 25px;
+  margin-right: 20px;
+  width: 250px;
+  
+  border:3px solid black;
+}
+
+.project_img{
+  width: 100%;
+
+
+}
+
+.project_info{
+  padding:10px;
+}
+
+.project_info_a {
+  font-size: 12px;
+  font-weight: 600;
+  /*color: black;*/
+  letter-spacing: 2px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 2px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.project_info_a:after {
+  content: "";
+  background-color: $color-secundario;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.project_info_a:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+
+.project_info_p{
+  font-size: 12px;
+  color:black;
+  margin-top: 30px;;
+}
+
+#aside{
+  /*order:2; Pone aside en la derecha*/
+  flex-basis: 15%;
+  margin-right: 30px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
+
+.aside_title{
+  display:block;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  color:black;
+  padding-bottom: 10px;
+  margin-bottom:20px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  padding-left: 10px;
+
+}
+
+.aside_title_ul{
+  list-style: none;
+
+}
+
+.aside_li{
+  padding-bottom: 20px;
+}
+
+
+/*Menú (links)aside*/
+.aside_a {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson,Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.aside_a:before {
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: $color-secundario;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.aside_a:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.aside_a:after {
+  background-color: #FFFFFF;
+}
+
+.aside_a span {
+  z-index: 1;
+  position: relative;
+}
+
+#footer{
+ 
+  background-color: black;
+  height: 120px;
+}
+
+.footer_h2{
+  font-size: 14px;
+  color:white;
+  text-align: center;
+}
+
+.footer_p{
+  font-size: 9px;
+  color:white;
+  text-align:center;
+ 
+}
+
+.social{
+  display: flex;
+  padding:20px;
+  justify-content: center
+  
+}
+
+
+.btn_social{
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  padding:9px;
+  border:1px solid black;
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 5px;
+  touch-action: manipulation;
+}
+
+.btn_social:active{
+  background-color: $color-secundario;
+  border:2px solid white;
+}
+
+
+
+.form{
+  display: flex;
+  font-family: helvetica;
+  
+ 
+}
+
+.form_name{
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form label{
+	width:100%;
+	font-weight:bold;
+	display:inline-block;
+  justify-content: space-around;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form input[type="Tel"]
+{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+
+@media (max-width:1334px){
+
+  #header{
+    text-align: center;
+  }
+
+
+
+
+  #menu > ul{
+    margin-top: 20px;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+
+
+}
+
+
+@media (max-width:646px){
+
+
+  #contenido{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+
+  }
+  
+
+  /*#aside{
+    margin:0px;
+    align-items: center;
+  
+  }*/
+
+  #footer .logo {
+    flex-grow: 1;
+    order: 1;
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0px;
+
+  }
+
+
+
+
+  #header{
+    text-align: center;
+  }
+
+    
+
+
+
+     #footer .logo{
+        flex-grow: 1;
+        order:1;
+        flex-basis: 100%;
+        text-align:center;
+      }
+
+}
+
+
+@media (max-width:1334px){
+
+  #contenedor_web{
+    width: 100%;
+  }
+
+  #footer .logo{
+    flex-grow: 1;
+    order:1;
+    flex-basis: 100%;
+    text-align: center;
+    margin:0px;
+  }
+
+  #contenido{
+    display:flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  #aside{
+    margin-right: 0px;
+  }
+
+  .aside_li{
+    flex-grow: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .head_title{
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .project_info_a {
+    padding: 13px 50px 13px;
+}
+
+
+
+
+
+
+
+    
+
+
+  
+
+  
+    
+  }
+  
+
+
+
+
+
+
+
+
+  
